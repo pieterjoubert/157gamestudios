@@ -1,0 +1,55 @@
+
+body {
+    background-color: #ACACAC;
+}
+
+.heading
+{
+    font-family: verdana;
+    font-size: 14pt;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.heading2
+{
+    font-family: verdana;
+    font-size: 12pt;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.main
+{
+    margin: auto;
+    width: 80%;
+    background-color: lightblue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.section
+{
+    font-family: verdana;
+    font-size: 10pt;
+    padding-left: 20px;
+}
+
+img
+{
+    padding: 2px;
+}
+
+.image_left
+{
+    float: left;
+    margin: 0px 10px 0px 0px;
+}
+
+ul
+{
+     margin: 0;
+     padding: 0;
+     list-style-position: inside;
+
+}
