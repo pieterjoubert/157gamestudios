@@ -8,7 +8,7 @@
 <body>
     <div class="main">
         <div class="heading">
-            Connecting to github
+            Connecting to github and Unity Cloud build.
         </div>
         <div class="heading2" >
             Introduction
@@ -54,7 +54,92 @@
             Add some objects to your scene, e.g. a cube or a tree, just for testing purposes. If you downloaded the character controllers when  you installed Unity you can add those to an empty game object, just so that you can navigate around the scene.
         </div>
         <div class="heading2" >
-            Setting up Unity Cload build
+            Setting up Unity Cloud build
+        </div>
+        <div class="section" >
+            <div class="image_left"> <img src="../images/cloud_build.png" />
+            </div>
+            To setup Unity Cloud build we need to link our game to our Unity account as well as to our github. (At this point make sure that you have created a Unity account).
+        </div>
+        <br>
+        <div class="section" >
+            Select the Cloud Build option from the services tab ( as shown alongside). At this point you need to select either an existing organisation or create a new orgnisation (this can just be a one-person organisation).
+        </div>
+        <br>
+        <div class="section" >
+            Now we need to activate the Cloud Build option. For the <b> source control type</b> we choose git (seeing as we created our repository on github. Under the source control url, paste the url that was provided when you created the repository in github. For example I created a repository called <em>liberate-robot</em>, so the url would be: https://github.com/pieterjoubert/liberate-robot
+        </div>
+        <br>
+        <div class="section" >
+            We now need to choose our platform that we will build for. This depends on what platform we want to eventually deliver for. Don't worry about choosing the exact platform at this point as we can always change the build platform later.
+        </div>
+        <br>
+        <div class="section" >
+            Under <b> Target Setup </b> we will leave the settings as is for now. Unless you have used git before and have a number of branches there is no need to change anything at this stage.
+        </div>
+        <br>
+        <div class="section" >
+            At this point if we try and perform a build we cannot yet, as we have not yet pushed our project to github. We need to install git on our computers so that we can perform that various git commands that we need to. 
+        </div>
+        <br>
+        <div class="heading2" >
+            Using git
+        </div>
+        <div  class="section" >
+            There are a number of tools we can use to actually make git work besides the commandline application, but for the purposes of this tutorial I will be focusing on using git from the command line. This approach should have the most generalisability.
+        </div>
+        <br>
+        <div class="section" >
+            Git can be downloaded from: https://git-scm.com/downloads. You can also download a console emulator for windows if you do not like the built-in commandline. Once example is ConEmu (https://conemu.github.io/)
+        </div>
+        <br>
+        <div class="section" >
+            Git allows us to keep track of the progress of our game project at a very granular level. This means we can keep track of changes (additions and deletions) to any file that we are tracking in our project. Not only can we keep track of changes made (and who made them) we can also rollback any changes to a previous version (in the case of bugs within the project).
+        </div>
+        <br>
+        <div class="heading2" >
+            The git workflow
+        </div>
+        <div class="section" >
+            <ul>
+                <li> <b> Initialize</b> your git repository folder</li>
+                <li> Add a <b> remote </b> repository </li>
+                <li> <b> Add </b> files to git to track </li>
+                <li> <b> Commit </b> any changes to the files </li>
+                <li> <b> Push </b> these changes to the remote (i.e. github) repository </li>
+            </ul>
+            <br>
+            The last three steps will occur regularily as we make changese to our code and as we want to push those changes to the repository. If we have setup <b> auto-build </b> on Unity Cloud build, each time we push a change, a new version of our game will automatically be built.
+        </div>
+        <br>
+        <div class="section" >
+            The sequence of commands to run to setup our repository and push our initial changes are as follows (make sure you are in the root directory of your Unity project):
+            <div class="code_section" >
+                git init
+            </div>
+            This will initialize a new git project in the directory your are in.
+            <div class="code_section" >
+                git remote add origin https://github.com/pieterjoubert/liberate-robot
+            </div>
+            This will add the github repository as the remote origin. What this essentially does is it links the repository on your local machine to the repository to github.
+            <div class="code_section" >
+                git add .
+            </div>
+            This will add all of the files in the directory to what is called the staging area. This means that all these files will now be tracked for changes.
+            <div class="code_section" >
+                git commit -m "Initial Commit"
+            </div>
+            This <b> commits </b> the changes. This means that the changes are now accepted as valid and part of your project. The -m flag allows us to add a commit messages directly (the value in quotes), without having to edit a commit message in an  external editor first.
+            <div class="code_section" >
+                git push
+            </div>
+            This pushes the commited changes to the github repository. You might be prompted for your github username and password. At this point we have linked our code on our local machine both to github and Unity Cloud build, so a new build should start automatically. We can sign in to https://developer.cloud.unity3d.com/ to check the progress of our build.
+            <div class="image_left"> <img src="../images/current_build.png" />
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div class="section" >
+                In the image above we can see our current build is waiting in the build queue and wil start soon. Once it is done we will have an executable file, for the chosen platform, available that we can download and run!
+            </div>
         </div>
     </div>
 </body>
